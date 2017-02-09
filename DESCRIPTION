@@ -9,5 +9,5 @@ Encoding: UTF-8
 LazyData: true
 Imports:
   tidyverse (>= 1.1.0),
-  magrittr (>=1.5),
-  haven (>=1.0.0)
+  magrittr (>= 1.5),
+  haven (>= 1.0.0)
