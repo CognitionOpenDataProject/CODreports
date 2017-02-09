@@ -1,0 +1,27 @@
+---
+title: "Reproducibility Report"
+author: "Tom Hardwicke"
+date: "2/8/2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Step 1: Load packages
+
+```{r}
+library(tidyverse)
+```
+
+## Step 2: Load data
+
+
+```{r}
+d <- read.csv("articleData.csv")
+```
+
+## Step 3: Run analysis
+
+## Step 4: Conclusion
