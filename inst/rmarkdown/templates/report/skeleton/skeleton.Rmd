@@ -1,13 +1,39 @@
 ---
 title: "Reproducibility Report"
-author: 
-date: "`r format(Sys.time(), '%d %B, %Y')`"
-output: html_document
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    keep_md: true
 ---
+### Article ID: [Insert article ID number]
+#### Pilot: [Insert name of pilot]
+#### Co-pilot: Tom Hardwicke  
+#### Start date: [Insert start date]
+#### End date: [Insert end date]   
+#### Target outcomes: [Insert the target outcomes identified by TH/MF]  
+______  
+
+```{r global_options, include=FALSE}
+knitr::opts_chunk$set(echo=TRUE, warning=FALSE, message=FALSE)
+```
+
+## General Instructions
+
+### Commentary
+Provide commentary in plain text throughout. Each stage of the munging and analysis process must be described.
+
+### Quotations
+Use quotations from the original article to illustrate what you are attempting to reproduce. Quotations should be proceeded by the '>' symbol. For example "> This is a quote from the article" will produce:
+
+> This is a quote from the article.
+
+### Failure and success
+Reproducing the findings reported in the article might take some detective work, but ultimately if you find that you unable to reproduce one or more aspects of target findings
 
 ## Step 1: Load packages
 
-```{r}
+```{r load_packages}
 library(tidyverse) # for data munging
 library(magrittr) # for cleaner code
 library(haven) # import and export 'SPSS', 'Stata' and 'SAS' Files
@@ -15,25 +41,12 @@ library(haven) # import and export 'SPSS', 'Stata' and 'SAS' Files
 
 ## Step 2: Load data
 
-
-```{r}
-
-```
-
 ## Step 3: Mung data
 
 ## Step 4: Run analysis
 
 ### Descriptive statistics
 
-```{r}
-
-```
-
 ### Inferential statistics
-
-```{r}
-
-```
 
 ## Step 5: Conclusion
