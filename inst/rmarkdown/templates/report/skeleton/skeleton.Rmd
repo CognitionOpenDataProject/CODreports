@@ -19,6 +19,7 @@ knitr::opts_chunk$set(echo=TRUE, warning=FALSE, message=FALSE)
 ```
 
 ## General Instructions
+This General Instructions section can be deleted in your final report.
 
 ### Commentary
 Provide commentary in plain text throughout. Each stage of the munging and analysis process must be described.
