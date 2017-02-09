@@ -1,9 +1,12 @@
 Package: reproducibilityReports
-Title: What the Package Does (one line, title case)
-Version: 0.0.0.9000
-Authors@R: person("First", "Last", email = "first.last@example.com", role = c("aut", "cre"))
-Description: What the package does (one paragraph).
+Title: Build reproducibility reports for the Cognition open data project
+Version: 0.1
+Authors@R: person("Tom", "Hardwicke", email = "tom.hardwicke@stanford.edu", role = c("aut", "cre"))
+Description: An Rmarkdown template to build reproducibility reports for the Cognition open data project.
 Depends: R (>= 3.3.2)
-License: What license is it under?
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
+Imports:
+  tidyverse (>= 1.1.0),
+  ggplot2 (>= 2.2.1)
