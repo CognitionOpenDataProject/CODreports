@@ -38,6 +38,7 @@ Reproducing the findings reported in the article might take some detective work,
 library(tidyverse) # for data munging
 library(magrittr) # for cleaner code
 library(haven) # import and export 'SPSS', 'Stata' and 'SAS' Files
+library(readxl) # import excel files
 ```
 
 ## Step 2: Load data
