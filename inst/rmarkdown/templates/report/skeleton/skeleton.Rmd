@@ -34,7 +34,7 @@ Reproducing the findings reported in the article might take some detective work,
 
 ## Step 1: Load packages
 
-```{r load_packages}
+```{r}
 library(tidyverse) # for data munging
 library(magrittr) # for cleaner code
 library(haven) # import and export 'SPSS', 'Stata' and 'SAS' Files
@@ -42,12 +42,24 @@ library(haven) # import and export 'SPSS', 'Stata' and 'SAS' Files
 
 ## Step 2: Load data
 
+```{r}
+```
+
 ## Step 3: Mung data
+
+```{r}
+```
 
 ## Step 4: Run analysis
 
 ### Descriptive statistics
 
+```{r}
+```
+
 ### Inferential statistics
+
+```{r}
+```
 
 ## Step 5: Conclusion
