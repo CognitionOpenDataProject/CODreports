@@ -46,12 +46,17 @@ library(readxl) # import excel files
 ```{r}
 ```
 
-## Step 3: Mung data
+## Step 3: Tidy data
 
 ```{r}
 ```
 
 ## Step 4: Run analysis
+
+### Pre-processing
+
+```{r}
+```
 
 ### Descriptive statistics
 
