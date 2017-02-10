@@ -11,7 +11,7 @@ install.packages("devtools")
 Then run the following command to install the template directy from this Github page:
 
 ```r
-devtools::install_github("TomHardwicke/reproducibilityReports")
+devtools::install_github("CognitionOpenData/reproducibilityReports")
 ```
 
 Next time you create a new R markdown document, select 'from template', then choose "Reproducibility Report".
