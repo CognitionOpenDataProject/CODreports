@@ -25,7 +25,7 @@ This General Instructions section can be deleted in your final report.
 Provide commentary in plain text throughout. Each stage of the munging and analysis process must be described.
 
 ### Quotations
-Use quotations from the original article to illustrate what you are attempting to reproduce. Quotations should be proceeded by the '>' symbol. For example "> This is a quote from the article" will produce:
+Use quotations from the original article, codebook, or data files themselves, to illustrate what you are attempting to reproduce. Quotations should be proceeded by the '>' symbol. For example "> This is a quote from the article" will produce:
 
 > This is a quote from the article.
 
