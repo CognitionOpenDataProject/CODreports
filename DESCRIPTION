@@ -10,4 +10,5 @@ LazyData: true
 Imports:
   tidyverse (>= 1.1.0),
   magrittr (>= 1.5),
-  haven (>= 1.0.0)
+  haven (>= 1.0.0),
+  readxl (>= 0.1.1)
