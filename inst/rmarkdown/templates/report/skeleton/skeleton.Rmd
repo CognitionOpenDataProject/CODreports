@@ -9,8 +9,8 @@ output:
 ### Article ID: [Insert article ID number]
 #### Pilot: [Insert name of pilot]
 #### Co-pilot: Tom Hardwicke  
-#### Start date: [Insert start date]
-#### End date: [Insert end date]   
+#### Start date: [Insert start date - use US format]
+#### End date: [Insert end date - use US format]   
 #### Target outcomes: [Insert the target outcomes identified by TH/MF]  
 ______  
 
