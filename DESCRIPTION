@@ -1,8 +1,8 @@
-Package: reproducibilityReports
-Title: Build reproducibility reports for the Cognition open data project
+Package: COD_Reports
+Title: Build reproducibility reports for the Cognition Open Data (COD) project
 Version: 0.1
 Authors@R: person("Tom", "Hardwicke", email = "tom.hardwicke@stanford.edu", role = c("aut", "cre"))
-Description: An Rmarkdown template to build reproducibility reports for the Cognition open data project.
+Description: An Rmarkdown template and custom functions to build reproducibility reports for the Cognition Open Data (COD) project.
 Depends: R (>= 3.3.2)
 License: MIT + file LICENSE
 Encoding: UTF-8
@@ -11,4 +11,5 @@ Imports:
   tidyverse (>= 1.1.0),
   magrittr (>= 1.5),
   haven (>= 1.0.0),
-  readxl (>= 0.1.1)
+  readxl (>= 0.1.1),
+  knitr (>= 1.15.1)
