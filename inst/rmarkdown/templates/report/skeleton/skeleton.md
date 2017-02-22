@@ -1,0 +1,86 @@
+# Reproducibility Report
+### Article ID: [Insert article ID number]
+#### Pilot: [Insert name of pilot]
+#### Co-pilot: Tom Hardwicke  
+#### Start date: [Insert start date - use US format]
+#### End date: [Insert end date - use US format]   
+
+-------
+
+#### Methods summary: [Insert a summary of the methods underlying the target outcome written in your own words]
+
+------
+
+#### Target outcomes: [Insert the target outcomes identified by TH/MF]  
+
+------
+
+
+
+## General Instructions
+This General Instructions section can be deleted in your final report.
+
+### Commentary
+Provide commentary in plain text throughout. Each stage of the munging (data tidying) and analysis process must be described.
+
+### Quotations
+Use quotations or figures from the original article, codebook, or data files themselves, to illustrate what you are attempting to reproduce. Quotations should be proceeded by the '>' symbol. For example "> This is a quote from the article" will produce:
+
+> This is a quote from the article.
+
+### Failure and success
+
+Whenever you compare an outcome from your analysis with a reported outcome you should note in **bold** text (using double asterix like this: "**bold**") which of the following apply:
+
+* **OK** (i.e., no discrepancy)
+* **MINOR NUMERICAL**
+* **MAJOR NUMERICAL**
+* **DECISION ERROR**
+
+Consult the instructions document for further details. At the end of report you should report a tally of these outcomes.
+ 
+
+## Step 1: Load packages
+
+
+```r
+library(tidyverse) # for data munging
+library(magrittr) # for cleaner code
+library(haven) # import and export 'SPSS', 'Stata' and 'SAS' Files
+library(readxl) # import excel files
+```
+
+## Step 2: Load data
+
+
+
+## Step 3: Tidy data
+
+
+
+## Step 4: Run analysis
+
+### Pre-processing
+
+
+
+### Descriptive statistics
+
+
+
+### Inferential statistics
+
+
+
+## Step 5: Conclusion
+
+Results tally:
+
+* **OK** (i.e., no discrepancy): ?
+* **MINOR NUMERICAL ERROR**: ?
+* **MAJOR NUMERICAL ERROR**: ?
+* **DECISION ERROR**: ?
+
+If there were any major numerical or decision errors then this reproducibility check was a failure. If there were only minor numerical errors, or no discrepancies, then this reproducibility check was a success.
+
+OVERALL CONCLUSION: **SUCCESS/FAILURE**
