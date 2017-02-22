@@ -11,6 +11,12 @@
 #' COD_Report(Article_ID = "ABhgyo", Decision_Errors = 1, Major_Numerical_Errors = 4, Minor_Numerical_Errors = 12)
 
 COD_Report <- function(Article_ID, Decision_Errors, Major_Numerical_Errors, Minor_Numerical_Errors){
+  if(Decision_Errors > 0 | Major_Numerical_Errors > 0){
+    finalOutcome <- "Failure"
+  }else{
+    finalOutcome <- "Success"
+  }
+
   reportObject <- data.frame("Decision_Errors" = Decision_Errors,
                              "Major_Numerical_Errors" = Major_Numerical_Errors,
                              "Minor_Numerical_Errors" = Minor_Numerical_Errors)
