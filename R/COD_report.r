@@ -14,7 +14,7 @@ COD_Report <- function(Article_ID, Decision_Errors, Major_Numerical_Errors, Mino
   reportObject <- data.frame("Decision_Errors" = Decision_Errors,
                              "Major_Numerical_Errors" = Major_Numerical_Errors,
                              "Minor_Numerical_Errors" = Minor_Numerical_Errors)
-  filename <- paste("reportObject_", articleID)
+  filename <- paste("reportObject_", Article_ID)
   write.csv(reportObject, filename, row.names = F)
   return(kable(reportObject))
 }
