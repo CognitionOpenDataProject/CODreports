@@ -13,3 +13,4 @@ Imports:
   haven (>= 1.0.0),
   readxl (>= 0.1.1),
   knitr (>= 1.15.1)
+RoxygenNote: 6.0.1
