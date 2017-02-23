@@ -12,5 +12,6 @@ Imports:
   magrittr (>= 1.5),
   haven (>= 1.0.0),
   readxl (>= 0.1.1),
-  knitr (>= 1.15.1)
+  knitr (>= 1.15.1),
+  devtools (>= 1.12.0)
 RoxygenNote: 6.0.1
