@@ -39,14 +39,13 @@ Use quotations or figures from the original article, codebook, or data files the
 
 ### Failure and success
 
-Whenever you compare an outcome from your analysis with a reported outcome you should note in **bold** text (using double asterix like this: "**bold**") which of the following apply:
+Whenever you identify a potential discrepancy between an outcome from your analysis and a reported outcome, you should use the compareValues() function. This function takes three arguments: the reported outcome, the outcome obtained in your analysis and "isP". "isP" should be set to TRUE if you are comparing p-values, otherwise you do not need to specifcy anything (it will default to FALSE). The function will identify if there is a discrepancy between the reported and obtained values, classify the error type, and return a standardised reporting sentence that you should include in your report. For example:
 
-* **OK** (i.e., no discrepancy)
-* **MINOR NUMERICAL**
-* **MAJOR NUMERICAL**
-* **DECISION ERROR**
+```{}
+compareValues(reportedValue = .054, obtainedValue = .049, isP = T)
+```
 
-Consult the instructions document for further details. At the end of report you should report a tally of these outcomes.
+Consult the instructions document for further details. At the end of report you should report a tally of these outcomes using the COD_report() function (see end of this document for more information).
  
 
 ## Step 1: Load packages
@@ -88,7 +87,6 @@ library(readxl) # import excel files
 
 Results tally:
 
-* **OK** (i.e., no discrepancy): ?
 * **MINOR NUMERICAL ERROR**: ?
 * **MAJOR NUMERICAL ERROR**: ?
 * **DECISION ERROR**: ?
