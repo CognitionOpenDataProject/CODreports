@@ -15,7 +15,7 @@
 #' @export
 #' @examples
 #' compareValues(reportedValue = 3.45, obtainedValue = 1.34)
-#' compareValues(reportedValue = .054, obtainedValue = .049)
+#' compareValues(reportedValue = .054, obtainedValue = .049, isP = T)
 #' compareValues(reportedValue = 15.63, obtainedValue = 15.63)
 
 compareValues <- function(reportedValue, obtainedValue, isP = F) {
