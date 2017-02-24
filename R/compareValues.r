@@ -35,7 +35,7 @@ compareValues <- function(reportedValue, obtainedValue, isP = F) {
 
   if(isP){ # if we are comparing p values
     if((reportedValue >= .05 && obtainedValue <.05) || (reportedValue < .05 && obtainedValue >= .05)){
-      decisionError <- "Decision Error and "
+      decisionError <- "DECISION ERROR and "
     }
   }
 
