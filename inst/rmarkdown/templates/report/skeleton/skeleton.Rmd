@@ -47,7 +47,6 @@ compareValues(reportedValue = .054, obtainedValue = .049, isP = T)
 
 Consult the instructions document for further details. At the end of report you should report a tally of these outcomes using the COD_report() function (see end of this document for more information).
  
-
 ## Step 1: Load packages
 
 ```{r}
@@ -85,15 +84,16 @@ library(readxl) # import excel files
 
 ## Step 5: Conclusion
 
-Results tally:
+Upon completion of your report, please tally up the number of errors and enter them into the COD_report() function. For example:
 
-* **MINOR NUMERICAL ERROR**: ?
-* **MAJOR NUMERICAL ERROR**: ?
-* **DECISION ERROR**: ?
+```{r}
+COD_report(Article_ID = 'TEST', 
+           Decision_Errors = 1, 
+           Major_Numerical_Errors = 1, 
+           Minor_Numerical_Errors = 5)
+```
 
-If there were any major numerical or decision errors then this reproducibility check was a failure. If there were only minor numerical errors, or no discrepancies, then this reproducibility check was a success.
-
-OVERALL CONCLUSION: **SUCCESS/FAILURE**
+This function will output information about the package versions used in this report:
 
 ```{r session_info, include=TRUE, echo=TRUE, results='markup'}
 devtools::session_info()
