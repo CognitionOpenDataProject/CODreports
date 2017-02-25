@@ -93,6 +93,8 @@ COD_report(Article_ID = 'TEST',
            Minor_Numerical_Errors = 5)
 ```
 
+Please also include a brief text summary describing your findings. If this reproducibility check was a failure, you should note any suggestions as to what you think the likely cause(s) might be.
+
 This function will output information about the package versions used in this report:
 
 ```{r session_info, include=TRUE, echo=TRUE, results='markup'}
