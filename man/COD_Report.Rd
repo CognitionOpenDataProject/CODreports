@@ -4,11 +4,13 @@
 \alias{COD_Report}
 \title{COD_Report function}
 \usage{
-COD_Report(Article_ID, Decision_Errors, Major_Numerical_Errors,
-  Minor_Numerical_Errors)
+COD_Report(Article_ID, Absence_Of_Necessary_Information_Errors, Decision_Errors,
+  Major_Numerical_Errors, Minor_Numerical_Errors)
 }
 \arguments{
 \item{Article_ID}{Enter the article's unique ID code}
+
+\item{Absence_Of_Necessary_Information_Errors}{Enter the number of Absence Of Necessary Information Errors}
 
 \item{Decision_Errors}{Enter the number of decision errors}
 
@@ -23,5 +25,5 @@ Returns a formatted table (via kable) reporting error tallys. Also writes out a 
 This is a helper function for building standardised final outcoems for COD reproducibility reports.
 }
 \examples{
-COD_Report(Article_ID = "ABhgyo", Decision_Errors = 1, Major_Numerical_Errors = 4, Minor_Numerical_Errors = 12)
+COD_Report(Article_ID = "ABhgyo", Absence_Of_Necessary_Information_Errors = 0, Decision_Errors = 1, Major_Numerical_Errors = 4, Minor_Numerical_Errors = 12)
 }
