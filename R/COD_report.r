@@ -13,6 +13,10 @@
 #' COD_Report(Report_Type = "pilot", Article_ID = "ABhgyo", Insufficient_Information_Errors = 0, Decision_Errors = 1, Major_Numerical_Errors = 4, Minor_Numerical_Errors = 12)
 
 COD_Report <- function(Report_Type, Article_ID, Insufficient_Information_Errors, Decision_Errors, Major_Numerical_Errors, Minor_Numerical_Errors){
+
+  # input check
+  if(!(Report_Type %in% c('pilot', 'joint'))) stop("Error! Report_Type must be either 'pilot' or 'joint'.")
+
   if(Decision_Errors > 0 | Major_Numerical_Errors > 0 | Insufficient_Information_Errors > 0){
     finalOutcome <- "Failure"
   }else{
