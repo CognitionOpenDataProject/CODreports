@@ -53,6 +53,7 @@ Consult the instructions document for further details. At the end of report you 
 
 ```{r}
 library(tidyverse) # for data munging
+library(knitr) # for kable table formating
 library(haven) # import and export 'SPSS', 'Stata' and 'SAS' Files
 library(readxl) # import excel files
 ```
