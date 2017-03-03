@@ -91,7 +91,7 @@ library(CODreports) # custom report functions
 Upon completion of your report, please tally up the number of errors and enter them into the codReport() function. For example:
 
 ```{r}
-codReport(ReportType = 'pilot',
+codReport(Report_Type = 'pilot',
           Article_ID = 'ArticleID', 
           Insufficient_Information_Errors = 0,
           Decision_Errors = 0, 
