@@ -14,42 +14,25 @@ output:
 
 -------
 
-#### Methods summary: [Insert a summary of the methods underlying the target outcome written in your own words]
+#### Methods summary: 
+[Write a brief summary of the methods underlying the target outcomes written in your own words]
 
 ------
 
-#### Target outcomes: [Insert the target outcomes identified by TH/MF]  
+#### Target outcomes: 
+[Insert the target outcomes identified in targetOutcomes.md]  
 
 ------
+
+[The chunk below sets up some formatting options for the R Markdown document]
 
 ```{r global_options, include=FALSE}
 knitr::opts_chunk$set(echo=TRUE, warning=FALSE, message=FALSE)
 ```
 
-## General Instructions
-This General Instructions section can be deleted in your final report.
-
-### Commentary
-Provide commentary in plain text throughout. Each stage of the munging (data tidying) and analysis process must be described.
-
-### Quotations
-Use quotations or figures from the original article, codebook, or data files themselves, to illustrate what you are attempting to reproduce. Quotations should be proceeded by the '>' symbol. For example "> This is a quote from the article" will produce:
-
-> This is a quote from the article.
-
-### Failure and success
-
-In some cases the data analysis pipeline reported in the original article (and any supporting documentation) will be unclear or incomplete. In such cases, you *should not* attempt to make an educated guess about what the original authors did. Instead, you should note that there is a INSUFFICIENT INFORMATION ERROR.
-
-Whenever you identify a potential discrepancy between an outcome from your analysis and a reported outcome, you should use the compareValues() function. This function takes three arguments: the reported outcome, the outcome obtained in your analysis and "isP". "isP" should be set to TRUE if you are comparing p-values, otherwise you do not need to specifcy anything (it will default to FALSE). The function will identify if there is a discrepancy between the reported and obtained values, classify the error type, and return a standardised reporting sentence that you should include in your report. For example:
-
-```{}
-compareValues(reportedValue = .054, obtainedValue = .049, isP = T)
-```
-
-Consult the instructions document for further details. At the end of report you should report a tally of these outcomes using the codReport() function (see end of this document for more information).
- 
 ## Step 1: Load packages
+
+[Some useful packages are being loaded below. You can add any additional ones you might need too.]
 
 ```{r}
 library(tidyverse) # for data munging
@@ -73,6 +56,8 @@ library(CODreports) # custom report functions
 
 ### Pre-processing
 
+[you can remove this section if no pre-processing is required]
+
 ```{r}
 ```
 
@@ -88,15 +73,7 @@ library(CODreports) # custom report functions
 
 ## Step 5: Conclusion
 
-Upon completion of your report, please tally up the number of errors and enter them into the codReport() function. For example:
-
 ```{r}
-codReport(Report_Type = 'pilot',
-          Article_ID = 'ArticleID', 
-          Insufficient_Information_Errors = 0,
-          Decision_Errors = 0, 
-          Major_Numerical_Errors = 0, 
-          Minor_Numerical_Errors = 0)
 ```
 
 Please also include a brief text summary describing your findings. If this reproducibility check was a failure, you should note any suggestions as to what you think the likely cause(s) might be.
