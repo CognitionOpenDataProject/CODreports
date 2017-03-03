@@ -4,10 +4,12 @@
 \alias{COD_Report}
 \title{COD_Report function}
 \usage{
-COD_Report(Article_ID, Insufficient_Information_Errors, Decision_Errors,
-  Major_Numerical_Errors, Minor_Numerical_Errors)
+COD_Report(Report_Type, Article_ID, Insufficient_Information_Errors,
+  Decision_Errors, Major_Numerical_Errors, Minor_Numerical_Errors)
 }
 \arguments{
+\item{Report_Type}{Enter 'pilot' or 'joint'}
+
 \item{Article_ID}{Enter the article's unique ID code}
 
 \item{Insufficient_Information_Errors}{Enter the number of Insufficient Information Errors}
@@ -22,8 +24,8 @@ COD_Report(Article_ID, Insufficient_Information_Errors, Decision_Errors,
 Returns a formatted table (via kable) reporting error tallys. Also writes out a csv object containing the error tallys.
 }
 \description{
-This is a helper function for building standardised final outcoems for COD reproducibility reports.
+This is a helper function for building standardised final outcomes for COD reproducibility reports.
 }
 \examples{
-COD_Report(Article_ID = "ABhgyo", Insufficient_Information_Errors = 0, Decision_Errors = 1, Major_Numerical_Errors = 4, Minor_Numerical_Errors = 12)
+COD_Report(Report_Type = "pilot", Article_ID = "ABhgyo", Insufficient_Information_Errors = 0, Decision_Errors = 1, Major_Numerical_Errors = 4, Minor_Numerical_Errors = 12)
 }
