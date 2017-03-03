@@ -4,7 +4,6 @@ output:
   html_document:
     toc: true
     toc_float: true
-    keep_md: true
 ---
 ### Article ID: [Insert article ID number]
 #### Pilot: [Insert name of pilot]
