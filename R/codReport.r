@@ -23,7 +23,7 @@ codReport <- function(Report_Type, Article_ID, Insufficient_Information_Errors, 
     finalOutcome <- "Success"
   }
 
-  reportObject <- data.frame("Insufficient_Information_Errors" = Decision_Errors,
+  reportObject <- data.frame("Insufficient_Information_Errors" = Insufficient_Information_Errors,
                              "Decision_Errors" = Decision_Errors,
                              "Major_Numerical_Errors" = Major_Numerical_Errors,
                              "Minor_Numerical_Errors" = Minor_Numerical_Errors,
