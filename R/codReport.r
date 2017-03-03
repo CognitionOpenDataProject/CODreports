@@ -1,4 +1,4 @@
-#' COD_Report function
+#' codReport function
 #'
 #' This is a helper function for building standardised final outcomes for COD reproducibility reports.
 #' @param Report_Type Enter 'pilot' or 'joint'
@@ -10,9 +10,9 @@
 #' @return Returns a formatted table (via kable) reporting error tallys. Also writes out a csv object containing the error tallys.
 #' @export
 #' @examples
-#' COD_Report(Report_Type = "pilot", Article_ID = "ABhgyo", Insufficient_Information_Errors = 0, Decision_Errors = 1, Major_Numerical_Errors = 4, Minor_Numerical_Errors = 12)
+#' codReport(Report_Type = "pilot", Article_ID = "ABhgyo", Insufficient_Information_Errors = 0, Decision_Errors = 1, Major_Numerical_Errors = 4, Minor_Numerical_Errors = 12)
 
-COD_Report <- function(Report_Type, Article_ID, Insufficient_Information_Errors, Decision_Errors, Major_Numerical_Errors, Minor_Numerical_Errors){
+codReport <- function(Report_Type, Article_ID, Insufficient_Information_Errors, Decision_Errors, Major_Numerical_Errors, Minor_Numerical_Errors){
 
   # input check
   if(!(Report_Type %in% c('pilot', 'joint'))) stop("Error! Report_Type must be either 'pilot' or 'joint'.")
