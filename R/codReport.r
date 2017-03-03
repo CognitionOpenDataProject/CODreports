@@ -29,7 +29,7 @@ codReport <- function(Report_Type, Article_ID, Insufficient_Information_Errors, 
                              "Minor_Numerical_Errors" = Minor_Numerical_Errors,
                              "Final_Outcome" = finalOutcome)
 
-  filename <- paste("reportObject_",Report_Type,"_",Article_ID,".csv")
+  filename <- paste0("reportObject_",Report_Type,"_",Article_ID,".csv")
   write.csv(reportObject, filename, row.names = F)
   return(kable(reportObject))
 }
