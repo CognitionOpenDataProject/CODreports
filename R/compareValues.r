@@ -20,7 +20,7 @@
 
 compareValues <- function(reportedValue, obtainedValue, isP = F) {
 
-  pe <- ((abs(obtainedValue - reportedValue))/reportedValue)*100 # calculate percentage error
+  pe <- ((abs(obtainedValue - reportedValue))/abs(reportedValue))*100 # calculate percentage error
 
   # identify error type
   if(pe >= 10){
