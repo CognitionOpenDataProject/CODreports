@@ -10,7 +10,7 @@
 #' If p values are being compared, also returns an additional error type:
 #' >> 'decision error' (i.e., reported p and obtained p fall on different sides of the .05 threshold)
 #' @param reportedValue Enter the value reported in the article
-#' @param Decision_Errors Enter the corresponding value obtained in your reproducibility check
+#' @param obtainedValue Enter the corresponding value obtained in your reproducibility check
 #' @return Returns a short text report noting the error type and the PE.
 #' @export
 #' @examples

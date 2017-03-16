@@ -9,7 +9,7 @@ compareValues(reportedValue, obtainedValue, isP = F)
 \arguments{
 \item{reportedValue}{Enter the value reported in the article}
 
-\item{Decision_Errors}{Enter the corresponding value obtained in your reproducibility check}
+\item{obtainedValue}{Enter the corresponding value obtained in your reproducibility check}
 }
 \value{
 Returns a short text report noting the error type and the PE.
