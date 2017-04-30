@@ -20,6 +20,19 @@
 
 compareValues <- function(reportedValue, obtainedValue, isP = F) {
 
+  # first make sure reported value and obtained value have the same number of decimal places
+  # this function will return the number of decimal places
+  decimalPlaces <- function(x) {
+    if ((x %% 1) != 0) {
+      nchar(strsplit(sub('0+$', '', as.character(x)), ".", fixed=TRUE)[[1]][[2]])
+    } else {
+      return(0)
+    }
+  }
+
+  dp <- decimalPlaces(reportedValue) # get number of decimal places for reported value
+  obtainedValue <- round(obtainedValue, dp) # round obtained value to the same number of decimal places
+
   pe <- ((abs(obtainedValue - reportedValue))/abs(reportedValue))*100 # calculate percentage error
 
   # identify error type
@@ -39,7 +52,7 @@ compareValues <- function(reportedValue, obtainedValue, isP = F) {
     }
   }
 
-  reportText <- paste0(decisionError, errorType, ". The reported value (", reportedValue,") and the obtained value (", obtainedValue,") differed by ", round(pe, 2), "%")
+  reportText <- paste0(decisionError, errorType, ". The reported value (", reportedValue,") and the obtained value (", obtainedValue,") differed by ", round(pe, 2), "%. NB obtained value was rounded to ", dp, " decimal places.")
 
   return(reportText)
 }
