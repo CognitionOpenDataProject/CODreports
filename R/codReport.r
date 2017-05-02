@@ -7,20 +7,27 @@
 #' @param Decision_Errors Enter the number of decision errors
 #' @param Major_Numerical_Errors Enter the number of major numerical errors
 #' @param Minor_Numerical_Errors Enter the number of minor numerical errors
+#' @param Author_Assistance Enter whether author assistance was required (T/F)
 #' @return Returns a formatted table (via kable) reporting error tallys. Also writes out a csv object containing the error tallys.
 #' @export
 #' @examples
-#' codReport(Report_Type = "pilot", Article_ID = "ABhgyo", Insufficient_Information_Errors = 0, Decision_Errors = 1, Major_Numerical_Errors = 4, Minor_Numerical_Errors = 12)
+#' codReport(Report_Type = "pilot", Article_ID = "ABhgyo", Insufficient_Information_Errors = 0, Decision_Errors = 1, Major_Numerical_Errors = 4, Minor_Numerical_Errors = 12, Author_Assistance = T)
 
-codReport <- function(Report_Type, Article_ID, Insufficient_Information_Errors, Decision_Errors, Major_Numerical_Errors, Minor_Numerical_Errors){
+codReport <- function(Report_Type, Article_ID, Insufficient_Information_Errors, Decision_Errors, Major_Numerical_Errors, Minor_Numerical_Errors, Author_Assistance = F){
 
   # input check
   if(!(Report_Type %in% c('pilot', 'joint'))) stop("Error! Report_Type must be either 'pilot' or 'joint'.")
 
   if(Decision_Errors > 0 | Major_Numerical_Errors > 0 | Insufficient_Information_Errors > 0){
     finalOutcome <- "Failure"
+    if(Author_Assistance == T){
+      finalOutcome <- "Failure despite author assistance"
+    }
   }else{
     finalOutcome <- "Success"
+    if(Author_Assistance == T){
+      finalOutcome <- "Success with author assistance"
+    }
   }
 
   reportObject <- data.frame("Insufficient_Information_Errors" = Insufficient_Information_Errors,

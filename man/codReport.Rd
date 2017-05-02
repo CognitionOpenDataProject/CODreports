@@ -5,7 +5,8 @@
 \title{codReport function}
 \usage{
 codReport(Report_Type, Article_ID, Insufficient_Information_Errors,
-  Decision_Errors, Major_Numerical_Errors, Minor_Numerical_Errors)
+  Decision_Errors, Major_Numerical_Errors, Minor_Numerical_Errors,
+  Author_Assistance = F)
 }
 \arguments{
 \item{Report_Type}{Enter 'pilot' or 'joint'}
@@ -19,6 +20,8 @@ codReport(Report_Type, Article_ID, Insufficient_Information_Errors,
 \item{Major_Numerical_Errors}{Enter the number of major numerical errors}
 
 \item{Minor_Numerical_Errors}{Enter the number of minor numerical errors}
+
+\item{Author_Assistance}{Enter whether author assistance was required (T/F)}
 }
 \value{
 Returns a formatted table (via kable) reporting error tallys. Also writes out a csv object containing the error tallys.
@@ -27,5 +30,5 @@ Returns a formatted table (via kable) reporting error tallys. Also writes out a 
 This is a helper function for building standardised final outcomes for COD reproducibility reports.
 }
 \examples{
-codReport(Report_Type = "pilot", Article_ID = "ABhgyo", Insufficient_Information_Errors = 0, Decision_Errors = 1, Major_Numerical_Errors = 4, Minor_Numerical_Errors = 12)
+codReport(Report_Type = "pilot", Article_ID = "ABhgyo", Insufficient_Information_Errors = 0, Decision_Errors = 1, Major_Numerical_Errors = 4, Minor_Numerical_Errors = 12, Author_Assistance = T)
 }
