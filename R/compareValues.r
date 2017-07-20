@@ -20,6 +20,8 @@
 
 compareValues <- function(reportedValue, obtainedValue, isP = F) {
 
+  options(scipen = 999) # turn off scientific notation
+
   # first make sure reported value and obtained value have the same number of decimal places
   # this function will return the number of decimal places
   decimalPlaces <- function(x) {
