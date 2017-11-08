@@ -74,7 +74,7 @@ compareValues2 <- function(reportedValue, obtainedValue, valueType = c("p", "mea
     }
   }
 
-  updatedReportObject$valuesChecked <- updatedObject$valuesChecked + 1
+  updatedReportObject$valuesChecked <- updatedReportObject$valuesChecked + 1
 
   reportText <- paste0(decisionError, errorType, " for ", valueType, ". The reported value (", reportedValue,") and the obtained value (", obtainedValue,") differed by ", round(pe, 2), "%. NB obtained value was rounded to ", dp, " decimal places.")
   print(reportText)
