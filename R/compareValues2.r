@@ -14,11 +14,11 @@
 #' @return Returns a short text report noting the error type and the PE.
 #' @export
 #' @examples
-#' compareValues(reportedValue = '3.45', obtainedValue = 1.34, valueType = 'mean')
-#' compareValues(reportedValue = '.054', obtainedValue = .049, valueType = 'p')
-#' compareValues(reportedValue = '15.63', obtainedValue = 15.63, valueType = 'sd')
+#' compareValues2(reportedValue = '3.45', obtainedValue = 1.34, valueType = 'mean')
+#' compareValues2(reportedValue = '.054', obtainedValue = .049, valueType = 'p')
+#' compareValues2(reportedValue = '15.63', obtainedValue = 15.63, valueType = 'sd')
 
-compareValues2 <- function(reportedValue, obtainedValue, valueType = c("p", "mean", "sd", "se", "df", "F", "t", "bf", "ci", "median", "other")) {
+compareValues2 <- function(reportedValue, obtainedValue, valueType = c("p", "mean", "sd", "se", "df", "F", "t", "bf", "ci", "median", "other"), updatedReportObject = reportObject) {
 
   # check that value type was specified
   if(missing(valueType)){
@@ -47,7 +47,7 @@ compareValues2 <- function(reportedValue, obtainedValue, valueType = c("p", "mea
   # first make sure reported value and obtained value have the same number of decimal places
   # this function will return the number of decimal places
   decimalPlaces <- function(x) {
-    nchar(str_split_fixed(x, "\\.", n = 2))[,2]
+    nchar(stringr::str_split_fixed(x, "\\.", n = 2))[,2]
   }
 
   dp <- decimalPlaces(reportedValue) # get number of decimal places for reported value
@@ -74,7 +74,10 @@ compareValues2 <- function(reportedValue, obtainedValue, valueType = c("p", "mea
     }
   }
 
-  reportText <- paste0(decisionError, errorType, " for ", valueType, ". The reported value (", reportedValue,") and the obtained value (", obtainedValue,") differed by ", round(pe, 2), "%. NB obtained value was rounded to ", dp, " decimal places.")
+  updatedReportObject$valuesChecked <- updatedObject$valuesChecked + 1
 
-  return(reportText)
+  reportText <- paste0(decisionError, errorType, " for ", valueType, ". The reported value (", reportedValue,") and the obtained value (", obtainedValue,") differed by ", round(pe, 2), "%. NB obtained value was rounded to ", dp, " decimal places.")
+  print(reportText)
+
+  return(updatedReportObject)
 }

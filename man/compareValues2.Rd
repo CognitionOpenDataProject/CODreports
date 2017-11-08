@@ -5,7 +5,8 @@
 \title{compareValues2 function}
 \usage{
 compareValues2(reportedValue, obtainedValue, valueType = c("p", "mean", "sd",
-  "se", "df", "F", "t", "bf", "ci", "median", "other"))
+  "se", "df", "F", "t", "bf", "ci", "median", "other"),
+  updatedReportObject = reportObject)
 }
 \arguments{
 \item{reportedValue}{Enter the value reported in the article}
@@ -27,7 +28,7 @@ If p values are being compared, also returns an additional error type:
 >> 'decision error' (i.e., reported p and obtained p fall on different sides of the .05 threshold)
 }
 \examples{
-compareValues(reportedValue = '3.45', obtainedValue = 1.34, valueType = 'mean')
-compareValues(reportedValue = '.054', obtainedValue = .049, valueType = 'p')
-compareValues(reportedValue = '15.63', obtainedValue = 15.63, valueType = 'sd')
+compareValues2(reportedValue = '3.45', obtainedValue = 1.34, valueType = 'mean')
+compareValues2(reportedValue = '.054', obtainedValue = .049, valueType = 'p')
+compareValues2(reportedValue = '15.63', obtainedValue = 15.63, valueType = 'sd')
 }
