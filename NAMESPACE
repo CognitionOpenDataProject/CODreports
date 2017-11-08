@@ -2,3 +2,4 @@
 
 export(codReport)
 export(compareValues)
+export(compareValues2)
