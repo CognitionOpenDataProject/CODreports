@@ -18,7 +18,9 @@
 #' compareValues2(reportedValue = '.054', obtainedValue = .049, valueType = 'p')
 #' compareValues2(reportedValue = '15.63', obtainedValue = 15.63, valueType = 'sd')
 
-compareValues2 <- function(reportedValue, obtainedValue, valueType = c("p", "mean", "sd", "se", "df", "F", "t", "bf", "ci", "median", "other"), updatedReportObject = reportObject) {
+compareValues2 <- function(reportedValue, obtainedValue, valueType = c("p", "mean", "sd", "se", "df", "F", "t", "bf", "ci", "median", "es", "other"), updatedReportObject = reportObject) {
+
+  library(Hmisc)
 
   # check that value type was specified
   if(missing(valueType)){
@@ -59,8 +61,11 @@ compareValues2 <- function(reportedValue, obtainedValue, valueType = c("p", "mea
   # identify error type
   if(pe >= 10){
     errorType <- "MAJOR NUMERICAL ERROR"
+    inc(updatedReportObject[["Major_Numerical_Errors"]]) <- 1
+    inc(updatedReportObject[[paste0("Major_", valueType)]]) <- 1
   }else if(pe > 0 & pe < 10){
     errorType <- "MINOR NUMERICAL ERROR"
+    inc(updatedReportObject[["Minor_Numerical_Errors"]]) <- 1
   }else{
     errorType <- "MATCH"
   }
@@ -70,14 +75,19 @@ compareValues2 <- function(reportedValue, obtainedValue, valueType = c("p", "mea
   if(isP){ # if we are comparing p values
     if((reportedValue >= .05 && obtainedValue <.05) || (reportedValue < .05 && obtainedValue >= .05)){
       decisionError <- "DECISION ERROR and "
-      recordError(errorType = 'DECISION ERROR')
+      inc(updatedReportObject[["Decision_Errors"]])
     }
   }
 
-  updatedReportObject$valuesChecked <- updatedReportObject$valuesChecked + 1
+  # update the reportObject
+  inc(updatedReportObject[['valuesChecked']]) <- 1 # total values checked
+  inc(updatedReportObject[[paste0("Total_", valueType)]]) <- 1 # this value type checked
 
+  # print outcome
   reportText <- paste0(decisionError, errorType, " for ", valueType, ". The reported value (", reportedValue,") and the obtained value (", obtainedValue,") differed by ", round(pe, 2), "%. NB obtained value was rounded to ", dp, " decimal places.")
   print(reportText)
 
   return(updatedReportObject)
 }
+
+
