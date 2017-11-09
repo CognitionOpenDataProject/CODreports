@@ -48,6 +48,8 @@ compareValues2 <- function(reportedValue, obtainedValue, valueType = c("p", "mea
 
   options(scipen = 999) # turn off scientific notation
 
+  decisionError <- "" # initially make decision error blank (only needed if p value)
+
   if(reportedValue == 'eyeballMATCH'){ # reported value eyeballed and its a match
     errorType <- "MATCH"
     inc(updatedReportObject[['eyeballs']]) <- 1 # total values eyeballed
@@ -88,8 +90,6 @@ compareValues2 <- function(reportedValue, obtainedValue, valueType = c("p", "mea
     }else{
       errorType <- "MATCH"
     }
-
-    decisionError <- "" # initially make decision error blank (only needed if p value)
 
     if(isP){ # if we are comparing p values
       if((reportedValue >= .05 && obtainedValue <.05) || (reportedValue < .05 && obtainedValue >= .05)){
