@@ -30,7 +30,7 @@ compareValues2 <- function(reportedValue, obtainedValue, valueType = c("p", "mea
   }
 
   # check that value type was an accepted default
-  if(!valueType %in% c("p", "mean", "sd", "se", "df", "F", "t", "bf", "ci", "median", "other")){
+  if(!valueType %in% c("p", "mean", "sd", "se", "df", "F", "t", "bf", "ci", "median", "es", "other")){
     stop('WHOOPS! - YOU NEED TO ENTER THE VALUE TYPE FROM THE SPECIFIED LIST (you can also specify "other")')
   }
 
