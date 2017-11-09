@@ -79,17 +79,35 @@ library(CODreports) # custom report functions
 ```{r}
 # reportObject$Article_ID <- "articleID"
 # reportObject$affectsConclusion <- "yes, no, or unclear"
-# errorLocus_typo <- 1 or 0
-# errorLocus_specification <- 1 or 0
-# errorLocus_analysis <- 1 or 0
-# errorLocus_data <- 1 or 0
-# errorLocus_unidentified <- 1 or 0
-# Author_Assistance <- T or F
-# assistanceTypo <- 0
-# assistanceData <- 0
-# assistanceSpecification <- 0
-# correctionSuggested <- NA
-# correctionPublished <- NA
+# reportObject$errorLocus_typo <- 1 or 0
+# reportObject$errorLocus_specification <- 1 or 0
+# reportObject$errorLocus_analysis <- 1 or 0
+# reportObject$errorLocus_data <- 1 or 0
+# reportObject$errorLocus_unidentified <- 1 or 0
+# reportObject$Author_Assistance <- T or F
+# reportObject$assistanceTypo <- 0
+# reportObject$assistanceData <- 0
+# reportObject$assistanceSpecification <- 0
+# reportObject$correctionSuggested <- NA
+# reportObject$correctionPublished <- NA
+
+# decide on final outcome
+if(reportObject$Decision_Errors > 0 | reportObject$Major_Numerical_Errors > 0 | reportObject$Insufficient_Information_Errors > 0){
+  reportObject$finalOutcome <- "Failure"
+  if(reportObject$Author_Assistance == T){
+    reportObject$finalOutcome <- "Failure despite author assistance"
+  }
+}else{
+  reportObject$finalOutcome <- "Success"
+  if(reportObject$Author_Assistance == T){
+    reportObject$finalOutcome <- "Success with author assistance"
+  }
+}
+
+# save the report object
+filename <- paste0("reportObject_", Article_ID,".csv")
+write_csv(reportObject, filename)
+
 ```
 
 [Please also include a brief text summary describing your findings. If this reproducibility check was a failure, you should note any suggestions as to what you think the likely cause(s) might be.]
