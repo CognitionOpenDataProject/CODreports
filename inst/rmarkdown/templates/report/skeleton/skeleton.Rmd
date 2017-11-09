@@ -79,12 +79,12 @@ library(CODreports) # custom report functions
 ```{r}
 # reportObject$Article_ID <- "articleID"
 # reportObject$affectsConclusion <- "yes, no, or unclear"
-# errorLocus_typo <- T or F
-# errorLocus_specification <- T or F
-# errorLocus_analysis <- T or F
-# errorLocus_data <- T or F
-# errorLocus_unidentified <- T or F
-# Author_Assistance <- 
+# errorLocus_typo <- 1 or 0
+# errorLocus_specification <- 1 or 0
+# errorLocus_analysis <- 1 or 0
+# errorLocus_data <- 1 or 0
+# errorLocus_unidentified <- 1 or 0
+# Author_Assistance <- T or F
 # assistanceTypo <- 0
 # assistanceData <- 0
 # assistanceSpecification <- 0
