@@ -53,11 +53,13 @@ compareValues2 <- function(reportedValue, obtainedValue, valueType = c("p", "mea
   if(reportedValue == 'eyeballMATCH'){ # reported value eyeballed and its a match
     errorType <- "MATCH"
     inc(updatedReportObject[['eyeballs']]) <- 1 # total values eyeballed
+    reportText <- paste0("MATCH for ", valueType, ". Eyeball comparison only.")
   }else if(reportedValue == 'eyeballMAJOR'){ # reported value eyeballed and its a MAJOR ERROR
     inc(updatedReportObject[['eyeballs']]) <- 1 # total values eyeballed
     errorType <- "MAJOR NUMERICAL ERROR"
     inc(updatedReportObject[["Major_Numerical_Errors"]]) <- 1
     inc(updatedReportObject[[paste0("Major_", valueType)]]) <- 1
+    reportText <- paste0(errorType, " for ", valueType, ". Eyeball comparison only.")
   }else if(reportedValue == 'eyeballDECISION'){ # reported value eyeballed and its a decision error
     inc(updatedReportObject[['eyeballs']]) <- 1 # total values eyeballed
     errorType <- "MAJOR NUMERICAL ERROR"
@@ -65,6 +67,7 @@ compareValues2 <- function(reportedValue, obtainedValue, valueType = c("p", "mea
     inc(updatedReportObject[[paste0("Major_", valueType)]]) <- 1
     decisionError <- "DECISION ERROR and "
     inc(updatedReportObject[["Decision_Errors"]]) <- 1
+    reportText <- paste0(decisionError, errorType, " for ", valueType, ". Eyeball comparison only.")
   }else{ # its a regular reported value - let's check it out
 
     # first make sure reported value and obtained value have the same number of decimal places
@@ -97,6 +100,8 @@ compareValues2 <- function(reportedValue, obtainedValue, valueType = c("p", "mea
         inc(updatedReportObject[["Decision_Errors"]]) <- 1
       }
     }
+
+    reportText <- paste0(decisionError, errorType, " for ", valueType, ". The reported value (", reportedValue,") and the obtained value (", obtainedValue,") differed by ", round(pe, 2), "%. NB obtained value was rounded to ", dp, " decimal places.")
   }
 
   # update the reportObject
@@ -104,7 +109,6 @@ compareValues2 <- function(reportedValue, obtainedValue, valueType = c("p", "mea
   inc(updatedReportObject[[paste0("Total_", valueType)]]) <- 1 # this value type checked
 
   # print outcome
-  reportText <- paste0(decisionError, errorType, " for ", valueType, ". The reported value (", reportedValue,") and the obtained value (", obtainedValue,") differed by ", round(pe, 2), "%. NB obtained value was rounded to ", dp, " decimal places.")
   print(reportText)
 
   return(updatedReportObject)
