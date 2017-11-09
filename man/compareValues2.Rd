@@ -5,8 +5,8 @@
 \title{compareValues2 function}
 \usage{
 compareValues2(reportedValue, obtainedValue, valueType = c("p", "mean", "sd",
-  "se", "df", "F", "t", "bf", "ci", "median", "es", "other"),
-  updatedReportObject = reportObject)
+  "se", "df", "F", "t", "bf", "ci", "median", "es", "irr", "r", "z", "coeff",
+  "other"), updatedReportObject = reportObject)
 }
 \arguments{
 \item{reportedValue}{Enter the value reported in the article}
@@ -26,6 +26,7 @@ Errors types are defined as follows:
 >> 'major numerical' (i.e., PE >= 10%)
 If p values are being compared, also returns an additional error type:
 >> 'decision error' (i.e., reported p and obtained p fall on different sides of the .05 threshold)
+The default value types are as follows: "p" (p-value), "mean" (mean), "sd" (standard deviation), "se" (standard error), "df" (degrees of freedom), "F" (F test statistic), "t" (t test statistic), "bf" (bayes factor), "ci" (confidence interval), "median" (median), "es" (effect size), "irr" (inter-rater reliability), "r" (Pearson correlation coefficient), "z" (Wilcoxon z), "coeff" (regression coefficients), "other")
 }
 \examples{
 compareValues2(reportedValue = '3.45', obtainedValue = 1.34, valueType = 'mean')
