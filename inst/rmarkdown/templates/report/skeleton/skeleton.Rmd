@@ -30,7 +30,7 @@ output:
 knitr::opts_chunk$set(echo=TRUE, warning=FALSE, message=FALSE)
 
 # prepare an empty report object, we will update this each time we run compareValues2()
-reportObject <- data.frame("Article_ID" = NA, "valuesChecked" = 0, "eyeballs" = 0, "Total_df" = 0, "Total_p" = 0, "Total_mean" = 0, "Total_sd" = 0, "Total_se" = 0, "Total_ci" = 0, "Total_bf" = 0, "Total_t" = 0, "Total_F" = 0, "Total_es" = 0, "Total_median" = 0, "Total_other" = 0, "Insufficient_Information_Errors" = 0, "Decision_Errors" = 0, "Major_Numerical_Errors" = 0, "Minor_Numerical_Errors" = 0, "Major_df" = 0, "Major_p" = 0, "Major_mean" = 0, "Major_sd" = 0, "Major_se" = 0, "Major_ci" = 0, "Major_bf" = 0, "Major_t" = 0, "Major_F" = 0, "Major_es" = 0, "Major_median" = 0, "Major_other" = 0, "affectsConclusion" = NA, "errorLocus_typo" = 0, "errorLocus_specification" = 0, "errorLocus_analysis" = 0, "errorLocus_data" = 0, "errorLocus_unidentified" = 0, "Author_Assistance" = NA, "assistanceTypo" = 0, "assistanceData" = 0, "assistanceSpecification" = 0,  "correctionSuggested" = NA, "correctionPublished" = NA)
+reportObject <- data.frame("Article_ID" = NA, "valuesChecked" = 0, "eyeballs" = 0, "Total_df" = 0, "Total_p" = 0, "Total_mean" = 0, "Total_sd" = 0, "Total_se" = 0, "Total_ci" = 0, "Total_bf" = 0, "Total_t" = 0, "Total_F" = 0, "Total_es" = 0, "Total_median" = 0, "Total_other" = 0, "Insufficient_Information_Errors" = 0, "Decision_Errors" = 0, "Major_Numerical_Errors" = 0, "Minor_Numerical_Errors" = 0, "Major_df" = 0, "Major_p" = 0, "Major_mean" = 0, "Major_sd" = 0, "Major_se" = 0, "Major_ci" = 0, "Major_bf" = 0, "Major_t" = 0, "Major_F" = 0, "Major_es" = 0, "Major_median" = 0, "Major_other" = 0, "affectsConclusion" = NA, "error_typo" = 0, "error_specification" = 0, "error_analysis" = 0, "error_data" = 0, "error_unidentified" = 0, "Author_Assistance" = NA, "resolved_typo" = 0, "resolved_specification" = 0, "resolved_analysis" = 0, "resolved_data" = 0, "correctionSuggested" = NA, "correctionPublished" = NA)
 ```
 
 ## Step 1: Load packages
@@ -79,15 +79,16 @@ library(CODreports) # custom report functions
 ```{r}
 # reportObject$Article_ID <- "articleID"
 # reportObject$affectsConclusion <- "yes, no, or unclear"
-# reportObject$errorLocus_typo <- 1 or 0
-# reportObject$errorLocus_specification <- 1 or 0
-# reportObject$errorLocus_analysis <- 1 or 0
-# reportObject$errorLocus_data <- 1 or 0
-# reportObject$errorLocus_unidentified <- 1 or 0
+# reportObject$error_typo <- 1 or 0
+# reportObject$error_specification <- 1 or 0
+# reportObject$error_analysis <- 1 or 0
+# reportObject$error_data <- 1 or 0
+# reportObject$error_unidentified <- 1 or 0
 # reportObject$Author_Assistance <- T or F
-# reportObject$assistanceTypo <- 0
-# reportObject$assistanceData <- 0
-# reportObject$assistanceSpecification <- 0
+# reportObject$resolved_typo <- 1 or 0
+# reportObject$resolved_specification <- 1 or 0
+# reportObject$resolved_analysis <- 1 or 0
+# reportObject$resolved_data <- 1 or 0
 # reportObject$correctionSuggested <- NA
 # reportObject$correctionPublished <- NA
 
