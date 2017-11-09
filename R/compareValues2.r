@@ -20,7 +20,9 @@
 
 compareValues2 <- function(reportedValue, obtainedValue, valueType = c("p", "mean", "sd", "se", "df", "F", "t", "bf", "ci", "median", "es", "other"), updatedReportObject = reportObject) {
 
-  library(Hmisc)
+  "inc<-" <- function(x, value) { # a custom function (from Hmisc) to increment a variable
+    x + value
+  }
 
   # check that value type was specified
   if(missing(valueType)){

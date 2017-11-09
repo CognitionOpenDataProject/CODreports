@@ -11,6 +11,5 @@ Imports:
   tidyverse (>= 1.1.0),
   readxl (>= 0.1.1),
   knitr (>= 1.15.1),
-  devtools (>= 1.12.0),
-  Hmisc (>= 4.0.2)
+  devtools (>= 1.12.0)
 RoxygenNote: 6.0.1
