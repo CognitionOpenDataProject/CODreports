@@ -46,36 +46,54 @@ compareValues2 <- function(reportedValue, obtainedValue, valueType = c("p", "mea
 
   options(scipen = 999) # turn off scientific notation
 
-  # first make sure reported value and obtained value have the same number of decimal places
-  # this function will return the number of decimal places
-  decimalPlaces <- function(x) {
-    nchar(stringr::str_split_fixed(x, "\\.", n = 2))[,2]
-  }
-
-  dp <- decimalPlaces(reportedValue) # get number of decimal places for reported value
-  obtainedValue <- round(as.numeric(obtainedValue), dp) # round obtained value to the same number of decimal places
-  reportedValue <- as.numeric(reportedValue) # ensure reported value is numeric
-
-  pe <- ((abs(obtainedValue - reportedValue))/abs(reportedValue))*100 # calculate percentage error
-
-  # identify error type
-  if(pe >= 10){
+  if(reportedValue == 'eyeballMATCH'){ # reported value eyeballed and its a match
+    errorType <- "MATCH"
+    inc(updatedReportObject[['eyeballs']]) <- 1 # total values eyeballed
+  }else if(reportedValue == 'eyeballMAJOR'){ # reported value eyeballed and its a MAJOR ERROR
+    inc(updatedReportObject[['eyeballs']]) <- 1 # total values eyeballed
     errorType <- "MAJOR NUMERICAL ERROR"
     inc(updatedReportObject[["Major_Numerical_Errors"]]) <- 1
     inc(updatedReportObject[[paste0("Major_", valueType)]]) <- 1
-  }else if(pe > 0 & pe < 10){
-    errorType <- "MINOR NUMERICAL ERROR"
-    inc(updatedReportObject[["Minor_Numerical_Errors"]]) <- 1
-  }else{
-    errorType <- "MATCH"
-  }
+  }else if(reportedValue == 'eyeballDECISION'){ # reported value eyeballed and its a decision error
+    inc(updatedReportObject[['eyeballs']]) <- 1 # total values eyeballed
+    errorType <- "MAJOR NUMERICAL ERROR"
+    inc(updatedReportObject[["Major_Numerical_Errors"]]) <- 1
+    inc(updatedReportObject[[paste0("Major_", valueType)]]) <- 1
+    decisionError <- "DECISION ERROR and "
+    inc(updatedReportObject[["Decision_Errors"]]) <- 1
+  }else{ # its a regular reported value - let's check it out
 
-  decisionError <- "" # initially make decision error blank (only needed if p value)
+    # first make sure reported value and obtained value have the same number of decimal places
+    # this function will return the number of decimal places
+    decimalPlaces <- function(x) {
+      nchar(stringr::str_split_fixed(x, "\\.", n = 2))[,2]
+    }
 
-  if(isP){ # if we are comparing p values
-    if((reportedValue >= .05 && obtainedValue <.05) || (reportedValue < .05 && obtainedValue >= .05)){
-      decisionError <- "DECISION ERROR and "
-      inc(updatedReportObject[["Decision_Errors"]])
+    dp <- decimalPlaces(reportedValue) # get number of decimal places for reported value
+    obtainedValue <- round(as.numeric(obtainedValue), dp) # round obtained value to the same number of decimal places
+    reportedValue <- as.numeric(reportedValue) # ensure reported value is numeric
+
+    pe <- ((abs(obtainedValue - reportedValue))/abs(reportedValue))*100 # calculate percentage error
+
+    # identify error type
+    if(pe >= 10){
+      errorType <- "MAJOR NUMERICAL ERROR"
+      inc(updatedReportObject[["Major_Numerical_Errors"]]) <- 1
+      inc(updatedReportObject[[paste0("Major_", valueType)]]) <- 1
+    }else if(pe > 0 & pe < 10){
+      errorType <- "MINOR NUMERICAL ERROR"
+      inc(updatedReportObject[["Minor_Numerical_Errors"]]) <- 1
+    }else{
+      errorType <- "MATCH"
+    }
+
+    decisionError <- "" # initially make decision error blank (only needed if p value)
+
+    if(isP){ # if we are comparing p values
+      if((reportedValue >= .05 && obtainedValue <.05) || (reportedValue < .05 && obtainedValue >= .05)){
+        decisionError <- "DECISION ERROR and "
+        inc(updatedReportObject[["Decision_Errors"]]) <- 1
+      }
     }
   }
 

@@ -5,7 +5,7 @@
 \title{compareValues2 function}
 \usage{
 compareValues2(reportedValue, obtainedValue, valueType = c("p", "mean", "sd",
-  "se", "df", "F", "t", "bf", "ci", "median", "other"),
+  "se", "df", "F", "t", "bf", "ci", "median", "es", "other"),
   updatedReportObject = reportObject)
 }
 \arguments{
