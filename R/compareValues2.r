@@ -24,6 +24,11 @@ compareValues2 <- function(reportedValue, obtainedValue, valueType = c("p", "mea
     x + value
   }
 
+  # check that obtained value is length one
+  if(length(reportedValue) != 1){
+    stop('WHOOPS! - THE REPORTED VALUE NEEDS TO HAVE LENGTH ONE')
+  }
+
   # check that value type was specified
   if(missing(valueType)){
     stop('WHOOPS! - YOU NEED TO ENTER THE VALUE TYPE')
