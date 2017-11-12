@@ -9,7 +9,7 @@
 #' >> 'major numerical' (i.e., PE >= 10%)
 #' If p values are being compared, also returns an additional error type:
 #' >> 'decision error' (i.e., reported p and obtained p fall on different sides of the .05 threshold)
-#' The default value types are as follows: "p" (p-value), "mean" (mean), "sd" (standard deviation), "se" (standard error), "df" (degrees of freedom), "F" (F test statistic), "t" (t test statistic), "bf" (bayes factor), "ci" (confidence interval), "median" (median), "es" (effect size), "irr" (inter-rater reliability), "r" (Pearson correlation coefficient), "z" (Wilcoxon z), "coeff" (regression coefficients), "n" (count), "other")
+#' The default value types are as follows: "p" (p-value), "mean" (mean), "sd" (standard deviation), "se" (standard error), "df" (degrees of freedom), "F" (F test statistic), "t" (t test statistic), "bf" (bayes factor), "ci" (confidence interval), "median" (median), "es" (effect size), "irr" (inter-rater reliability), "r" (Pearson correlation coefficient), "z" (Wilcoxon z), "coeff" (regression coefficients), "n" (count or proportion), "x2" (chi squared), "other")
 #' @param reportedValue Enter the value reported in the article
 #' @param obtainedValue Enter the corresponding value obtained in your reproducibility check
 #' @return Returns a short text report noting the error type and the PE.
@@ -19,7 +19,7 @@
 #' compareValues2(reportedValue = '.054', obtainedValue = .049, valueType = 'p')
 #' compareValues2(reportedValue = '15.63', obtainedValue = 15.63, valueType = 'sd')
 
-compareValues2 <- function(reportedValue, obtainedValue, valueType = c("p", "mean", "sd", "se", "df", "F", "t", "bf", "ci", "median", "es", "irr", "r", "z", "coeff", "n", "other"), updatedReportObject = reportObject) {
+compareValues2 <- function(reportedValue, obtainedValue, valueType = c("p", "mean", "sd", "se", "df", "F", "t", "bf", "ci", "median", "es", "irr", "r", "z", "coeff", "n", "x2", "other"), updatedReportObject = reportObject) {
 
   "inc<-" <- function(x, value) { # a custom function (from Hmisc) to increment a variable
     x + value
@@ -36,7 +36,7 @@ compareValues2 <- function(reportedValue, obtainedValue, valueType = c("p", "mea
   }
 
   # check that value type was an accepted default
-  if(!valueType %in% c("p", "mean", "sd", "se", "df", "F", "t", "bf", "ci", "median", "es", "irr", "r", "z", "coeff", "n", "other")){
+  if(!valueType %in% c("p", "mean", "sd", "se", "df", "F", "t", "bf", "ci", "median", "es", "irr", "r", "z", "coeff", "n", "x2", "other")){
     stop('WHOOPS! - YOU NEED TO ENTER THE VALUE TYPE FROM THE SPECIFIED LIST (you can also specify "other")')
   }
 
